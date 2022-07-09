@@ -1,0 +1,17 @@
+D:\Desktop\app 包\c#\empty\empty\bin\x64\Debug\net6.0-windows\empty.exe
+D:\Desktop\app 包\c#\empty\empty\bin\x64\Debug\net6.0-windows\empty.deps.json
+D:\Desktop\app 包\c#\empty\empty\bin\x64\Debug\net6.0-windows\empty.runtimeconfig.json
+D:\Desktop\app 包\c#\empty\empty\bin\x64\Debug\net6.0-windows\empty.dll
+D:\Desktop\app 包\c#\empty\empty\bin\x64\Debug\net6.0-windows\empty.pdb
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.csproj.AssemblyReference.cache
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.Form1.resources
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.csproj.GenerateResource.cache
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.AssemblyInfoInputs.cache
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.AssemblyInfo.cs
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.csproj.CoreCompileInputs.cache
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.dll
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\refint\empty.dll
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.pdb
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\empty.genruntimeconfig.cache
+D:\Desktop\app 包\c#\empty\empty\obj\x64\Debug\net6.0-windows\ref\empty.dll

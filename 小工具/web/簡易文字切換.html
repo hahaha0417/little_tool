@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta -->
+    <!-- css -->
+    <link rel="stylesheet" href="./asset/plugin/\bootstrap\dist\css\bootstrap.css?v=1.0.0"
+        type="text/css" />
+    <link rel="stylesheet" href="./asset/plugin/\sweetalert2\dist\sweetalert2.css?v=1.0.0"
+        type="text/css" />
+    <link rel="stylesheet" href="./asset/plugin/font-awesome\css\font-awesome.css?v=1.0.0"
+        type="text/css" /> <!-- js -->
+    <script type="text/javascript" src="./asset/plugin/\jquery\dist\jquery.js?v=1.0.0" \>
+    </script>
+    <script type="text/javascript" src="./asset/plugin/\bootstrap\dist\js\bootstrap.bundle.js?v=1.0.0" \>
+    </script>
+    <script type="text/javascript" src="./asset/plugin/\sweetalert2\dist\sweetalert2.js?v=1.0.0" \>
+    </script>
+
+    <title>
+        hahaha index </title>
+</head>
+
+<body>
+    <!-- --------------------------------- -->
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <a href="#" class="nav-link px-2 text-secondary">
+                                首頁
+                            </a>
+                        </li>
+                       
+                    </ul> -->
+
+
+            </div>
+        </div>
+    </header>
+   
+    <!-- --------------------------------- -->
+    <div class="row">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="form-group">
+                            <label for="namespace">命名空間</label>
+                            <input type="text" class="form-control" id="namespace" placeholder="namespace">
+                        </div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="item">項目</label>
+                            <textarea class="form-control" id="item" rows="3" placeholder="項目"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="result1">樣式1</label>
+                            <textarea class="form-control" id="style1" rows="10" placeholder="XXX::XXX,"></textarea>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">樣式2</label>
+                            <textarea class="form-control" id="style2" ; rows="10" placeholder='XXX::XXX => ""'></textarea>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            <label for="style3">樣式3</label>
+                            <textarea class="form-control" id="style3" rows="10" placeholder='XXX::XXX => []'></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="const">常數</label>
+                            <textarea class="form-control" id="const" rows="3" placeholder="常數"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="result">結果</label>
+                            <textarea class="form-control" id="result" rows="10" placeholder="XXX"></textarea>
+                        </div>
+                    </td>
+
+                </tr>
+            </tbody>
+
+            <table>
+    </div>
+
+
+    <!-- --------------------------------- -->
+
+
+    <script>
+        $(document).ready(function () {
+            function keyup1()
+            {
+                let namespace = $("#namespace").val();
+                let items = $("#item").val().trim().split("\n");
+                
+                // console.log(namespace, items);
+                // --------------------------------------------------------------- 
+                $('#style1').val("");
+                $('#style2').val("");
+                $('#style3').val("");
+                // --------------------------------------------------------------- 
+                // --------------------------------------------------------------- 
+                $.each(items, function(key, v){
+                    $('#style1').val(
+                        $('#style1').val() + namespace + "::" + v + "," + "\n" 
+                    );
+
+                    $('#style2').val(
+                        $('#style2').val() + namespace + "::" + v + " => \"\"," + "\n" 
+                    );
+
+                    $('#style3').val(
+                        $('#style3').val() + namespace + "::" + v + " => []," + "\n" 
+                    );
+                });
+                // --------------------------------------------------------------- 
+            }
+            $("#namespace, #item").keyup(function(){
+                keyup1();
+            });
+
+
+
+            $("#const").keyup(function(){
+                let items = $("#const").val().split("\n");
+                
+                // console.log(namespace, items);
+                // --------------------------------------------------------------- 
+                $('#result').val("");
+                // --------------------------------------------------------------- 
+                // --------------------------------------------------------------- 
+                $.each(items, function(key, v){
+                    if(v.trim().split(" ")[0] == "//")
+                    {
+                        return true;
+                    } else if(v.trim().split(" ")[0] == "")
+                    {
+                        return true;
+                    }
+                    
+                    let vv = v.trim().split(" ")[1];
+                    $('#result').val(
+                        $('#result').val() + vv + "\n" 
+                    );
+
+
+                    $("#item").val($('#result').val());
+                    $('#result').keyup();
+                    keyup1();
+                });
+                // --------------------------------------------------------------- 
+            });
+        });
+    </script>
+    <!-- --------------------------------- -->
+</body>
+
+</html>
