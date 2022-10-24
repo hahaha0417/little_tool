@@ -1,0 +1,17 @@
+D:\Desktop\小工具\小工具\c#\socket\client\client\bin\Debug\net6.0-windows\client.exe
+D:\Desktop\小工具\小工具\c#\socket\client\client\bin\Debug\net6.0-windows\client.deps.json
+D:\Desktop\小工具\小工具\c#\socket\client\client\bin\Debug\net6.0-windows\client.runtimeconfig.json
+D:\Desktop\小工具\小工具\c#\socket\client\client\bin\Debug\net6.0-windows\client.dll
+D:\Desktop\小工具\小工具\c#\socket\client\client\bin\Debug\net6.0-windows\client.pdb
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.csproj.AssemblyReference.cache
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\hahaha.client.resources
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.csproj.GenerateResource.cache
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.AssemblyInfoInputs.cache
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.AssemblyInfo.cs
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.csproj.CoreCompileInputs.cache
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.dll
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\refint\client.dll
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.pdb
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\client.genruntimeconfig.cache
+D:\Desktop\小工具\小工具\c#\socket\client\client\obj\Debug\net6.0-windows\ref\client.dll

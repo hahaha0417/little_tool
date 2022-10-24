@@ -114,7 +114,7 @@
             this.label_parameter.Name = "label_parameter";
             this.label_parameter.Size = new System.Drawing.Size(31, 15);
             this.label_parameter.TabIndex = 6;
-            this.label_parameter.Text = "指令";
+            this.label_parameter.Text = "參數";
             this.label_parameter.UseMnemonic = false;
             // 
             // form_auto_run

@@ -66,9 +66,9 @@ namespace hahaha
                 {
                     FileName = command_,
                     Arguments = parameter_,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
+                    UseShellExecute = true,
+                    RedirectStandardOutput = false,
+                    CreateNoWindow = false,
                 }
             };
             // https://docs.microsoft.com/zh-tw/dotnet/api/system.diagnostics.process.exited?view=net-6.0
@@ -95,9 +95,9 @@ namespace hahaha
                     {
                         FileName = command_,
                         Arguments = parameter_,
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true
+                        UseShellExecute = true,
+                        RedirectStandardOutput = false,
+                        CreateNoWindow = false,
                     }
                 };
                 // https://docs.microsoft.com/zh-tw/dotnet/api/system.diagnostics.process.exited?view=net-6.0
