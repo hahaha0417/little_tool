@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KdRkwU6Y0cCo/mwmId27a7u6rMkCGGtaLg5uDHSLC0CiNPqHbCGPIlpR9zG8abJyiUq8ME1oYvdDoJ5AKoNOPw==",
+  "dgSpecHash": "FSbWqw4lYrW0c7s60I6c+spm7AE6q5osVTm8T2tEQfcIf1SAZq2kAtDwkM225mF8pTZaAmf4wEJDjFvs1cM2EQ==",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\小工具\\小工具\\c#\\socket server\\socket server\\socket server.csproj",
+  "projectFilePath": "D:\\Desktop\\小工具\\小工具\\c#\\test\\socket server\\socket server\\socket server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
