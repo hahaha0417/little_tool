@@ -95,7 +95,8 @@ namespace hahaha
 
             socket_listener_[0] = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            string local_ip = "127.0.0.1";
+            // string local_ip = "127.0.0.1";
+            string local_ip = "192.168.2.105";
             socket_listener_[0].Bind(new IPEndPoint(IPAddress.Parse(local_ip), Int32.Parse(text_box_port.Text)));
 
 
