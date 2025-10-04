@@ -66,8 +66,12 @@ namespace hahaha
                 {
                     FileName = command_,
                     Arguments = parameter_,
-                    UseShellExecute = true,
-                    RedirectStandardOutput = false,
+                    //UseShellExecute = true,
+                    //RedirectStandardOutput = false,
+                    //CreateNoWindow = false,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
                     CreateNoWindow = false,
                 }
             };
