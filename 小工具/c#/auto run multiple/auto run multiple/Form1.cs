@@ -7,7 +7,7 @@ namespace hahaha
     public partial class form_auto_run : Form
     {
         bool running_ = false;
-        public form_auto_run()
+        public form_auto_run() 
         {
             InitializeComponent();
 
