@@ -8,7 +8,7 @@
         private System.ComponentModel.IContainer components = null;
         private Label command_label;
         private TextBox command;
-        private Panel panel_autoload;
+        private Panel panel_is_run;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -34,50 +34,57 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_auto_run_multiple));
             command_label = new Label();
             command = new TextBox();
-            panel_autoload = new Panel();
+            panel_is_run = new Panel();
             parameter = new TextBox();
             label_parameter = new Label();
             panel1 = new Panel();
             panel5 = new Panel();
-            listBox2 = new ListBox();
-            textBox2 = new TextBox();
+            box_item = new ListBox();
+            name_item = new TextBox();
             panel7 = new Panel();
-            button12 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
+            button_copy_item = new Button();
+            button_down_item = new Button();
+            button_up_item = new Button();
+            button_delete_item = new Button();
+            button_rename_item = new Button();
+            button_add_item = new Button();
             panel4 = new Panel();
-            listBox1 = new ListBox();
-            textBox1 = new TextBox();
+            box_class = new ListBox();
+            name_class = new TextBox();
             panel6 = new Panel();
-            button11 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            button_copy_class = new Button();
+            button_down_class = new Button();
+            button_up_class = new Button();
+            button_delete_class = new Button();
+            button_rename_class = new Button();
+            button_add_class = new Button();
             panel2 = new Panel();
+            button_kill_process = new Button();
+            button_run = new Button();
+            button_close = new Button();
+            check_box_auto_reload = new CheckBox();
             panel3 = new Panel();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             panel8 = new Panel();
             panel12 = new Panel();
-            button16 = new Button();
-            button15 = new Button();
-            checkBox1 = new CheckBox();
-            button13 = new Button();
-            button14 = new Button();
+            button_kill_process_select = new Button();
+            button_un_select = new Button();
+            check_box_auto_reload_select = new CheckBox();
+            button_run_select = new Button();
+            button_close_select = new Button();
             tabPage2 = new TabPage();
             panel9 = new Panel();
-            richTextBox1 = new RichTextBox();
+            box_display = new RichTextBox();
             tabPage3 = new TabPage();
             panel10 = new Panel();
+            button_reset_all = new Button();
+            button_load_all = new Button();
+            button_save_all = new Button();
             label3 = new Label();
-            textBox3 = new TextBox();
+            count_line = new TextBox();
             label1 = new Label();
-            textBox4 = new TextBox();
+            time_display = new TextBox();
             label2 = new Label();
             tabPage4 = new TabPage();
             panel11 = new Panel();
@@ -115,13 +122,14 @@
             command.Name = "command";
             command.Size = new Size(434, 23);
             command.TabIndex = 1;
+            command.TextChanged += command_TextChanged;
             // 
-            // panel_autoload
+            // panel_is_run
             // 
-            panel_autoload.Location = new Point(18, 96);
-            panel_autoload.Name = "panel_autoload";
-            panel_autoload.Size = new Size(148, 133);
-            panel_autoload.TabIndex = 5;
+            panel_is_run.Location = new Point(357, 93);
+            panel_is_run.Name = "panel_is_run";
+            panel_is_run.Size = new Size(148, 133);
+            panel_is_run.TabIndex = 5;
             // 
             // parameter
             // 
@@ -129,6 +137,7 @@
             parameter.Name = "parameter";
             parameter.Size = new Size(434, 23);
             parameter.TabIndex = 7;
+            parameter.TextChanged += parameter_TextChanged;
             // 
             // label_parameter
             // 
@@ -152,8 +161,8 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(listBox2);
-            panel5.Controls.Add(textBox2);
+            panel5.Controls.Add(box_item);
+            panel5.Controls.Add(name_item);
             panel5.Controls.Add(panel7);
             panel5.Dock = DockStyle.Left;
             panel5.Location = new Point(363, 0);
@@ -161,101 +170,108 @@
             panel5.Size = new Size(360, 564);
             panel5.TabIndex = 11;
             // 
-            // listBox2
+            // box_item
             // 
-            listBox2.Dock = DockStyle.Fill;
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(0, 0);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(360, 481);
-            listBox2.TabIndex = 1;
+            box_item.Dock = DockStyle.Fill;
+            box_item.FormattingEnabled = true;
+            box_item.Location = new Point(0, 0);
+            box_item.Name = "box_item";
+            box_item.Size = new Size(360, 481);
+            box_item.TabIndex = 1;
+            box_item.SelectedIndexChanged += box_item_SelectedIndexChanged;
             // 
-            // textBox2
+            // name_item
             // 
-            textBox2.Dock = DockStyle.Bottom;
-            textBox2.Location = new Point(0, 481);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(360, 23);
-            textBox2.TabIndex = 13;
+            name_item.Dock = DockStyle.Bottom;
+            name_item.Location = new Point(0, 481);
+            name_item.Name = "name_item";
+            name_item.Size = new Size(360, 23);
+            name_item.TabIndex = 13;
             // 
             // panel7
             // 
-            panel7.Controls.Add(button12);
-            panel7.Controls.Add(button6);
-            panel7.Controls.Add(button7);
-            panel7.Controls.Add(button8);
-            panel7.Controls.Add(button9);
-            panel7.Controls.Add(button10);
+            panel7.Controls.Add(button_copy_item);
+            panel7.Controls.Add(button_down_item);
+            panel7.Controls.Add(button_up_item);
+            panel7.Controls.Add(button_delete_item);
+            panel7.Controls.Add(button_rename_item);
+            panel7.Controls.Add(button_add_item);
             panel7.Dock = DockStyle.Bottom;
             panel7.Location = new Point(0, 504);
             panel7.Name = "panel7";
             panel7.Size = new Size(360, 60);
             panel7.TabIndex = 12;
             // 
-            // button12
+            // button_copy_item
             // 
-            button12.Dock = DockStyle.Left;
-            button12.Location = new Point(300, 0);
-            button12.Name = "button12";
-            button12.Size = new Size(60, 60);
-            button12.TabIndex = 21;
-            button12.Text = "複製";
-            button12.UseVisualStyleBackColor = true;
+            button_copy_item.Dock = DockStyle.Left;
+            button_copy_item.Location = new Point(300, 0);
+            button_copy_item.Name = "button_copy_item";
+            button_copy_item.Size = new Size(60, 60);
+            button_copy_item.TabIndex = 21;
+            button_copy_item.Text = "複製";
+            button_copy_item.UseVisualStyleBackColor = true;
+            button_copy_item.Click += button_copy_item_Click;
             // 
-            // button6
+            // button_down_item
             // 
-            button6.Dock = DockStyle.Left;
-            button6.Location = new Point(240, 0);
-            button6.Name = "button6";
-            button6.Size = new Size(60, 60);
-            button6.TabIndex = 20;
-            button6.Text = "v";
-            button6.UseVisualStyleBackColor = true;
+            button_down_item.Dock = DockStyle.Left;
+            button_down_item.Location = new Point(240, 0);
+            button_down_item.Name = "button_down_item";
+            button_down_item.Size = new Size(60, 60);
+            button_down_item.TabIndex = 20;
+            button_down_item.Text = "v";
+            button_down_item.UseVisualStyleBackColor = true;
+            button_down_item.Click += button_down_item_Click;
             // 
-            // button7
+            // button_up_item
             // 
-            button7.Dock = DockStyle.Left;
-            button7.Location = new Point(180, 0);
-            button7.Name = "button7";
-            button7.Size = new Size(60, 60);
-            button7.TabIndex = 19;
-            button7.Text = "^";
-            button7.UseVisualStyleBackColor = true;
+            button_up_item.Dock = DockStyle.Left;
+            button_up_item.Location = new Point(180, 0);
+            button_up_item.Name = "button_up_item";
+            button_up_item.Size = new Size(60, 60);
+            button_up_item.TabIndex = 19;
+            button_up_item.Text = "^";
+            button_up_item.UseVisualStyleBackColor = true;
+            button_up_item.Click += button_up_item_Click;
             // 
-            // button8
+            // button_delete_item
             // 
-            button8.Dock = DockStyle.Left;
-            button8.Location = new Point(120, 0);
-            button8.Name = "button8";
-            button8.Size = new Size(60, 60);
-            button8.TabIndex = 18;
-            button8.Text = "刪除";
-            button8.UseVisualStyleBackColor = true;
+            button_delete_item.Dock = DockStyle.Left;
+            button_delete_item.Location = new Point(120, 0);
+            button_delete_item.Name = "button_delete_item";
+            button_delete_item.Size = new Size(60, 60);
+            button_delete_item.TabIndex = 18;
+            button_delete_item.Text = "刪除";
+            button_delete_item.UseVisualStyleBackColor = true;
+            button_delete_item.Click += button_delete_item_Click;
             // 
-            // button9
+            // button_rename_item
             // 
-            button9.Dock = DockStyle.Left;
-            button9.Location = new Point(60, 0);
-            button9.Name = "button9";
-            button9.Size = new Size(60, 60);
-            button9.TabIndex = 17;
-            button9.Text = "更名";
-            button9.UseVisualStyleBackColor = true;
+            button_rename_item.Dock = DockStyle.Left;
+            button_rename_item.Location = new Point(60, 0);
+            button_rename_item.Name = "button_rename_item";
+            button_rename_item.Size = new Size(60, 60);
+            button_rename_item.TabIndex = 17;
+            button_rename_item.Text = "更名";
+            button_rename_item.UseVisualStyleBackColor = true;
+            button_rename_item.Click += button_rename_item_Click;
             // 
-            // button10
+            // button_add_item
             // 
-            button10.Dock = DockStyle.Left;
-            button10.Location = new Point(0, 0);
-            button10.Name = "button10";
-            button10.Size = new Size(60, 60);
-            button10.TabIndex = 16;
-            button10.Text = "新增";
-            button10.UseVisualStyleBackColor = true;
+            button_add_item.Dock = DockStyle.Left;
+            button_add_item.Location = new Point(0, 0);
+            button_add_item.Name = "button_add_item";
+            button_add_item.Size = new Size(60, 60);
+            button_add_item.TabIndex = 16;
+            button_add_item.Text = "新增";
+            button_add_item.UseVisualStyleBackColor = true;
+            button_add_item.Click += button_add_item_Click;
             // 
             // panel4
             // 
-            panel4.Controls.Add(listBox1);
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(box_class);
+            panel4.Controls.Add(name_class);
             panel4.Controls.Add(panel6);
             panel4.Dock = DockStyle.Left;
             panel4.Location = new Point(0, 0);
@@ -263,109 +279,161 @@
             panel4.Size = new Size(363, 564);
             panel4.TabIndex = 11;
             // 
-            // listBox1
+            // box_class
             // 
-            listBox1.Dock = DockStyle.Fill;
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(0, 0);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(363, 481);
-            listBox1.TabIndex = 0;
+            box_class.Dock = DockStyle.Fill;
+            box_class.FormattingEnabled = true;
+            box_class.Location = new Point(0, 0);
+            box_class.Name = "box_class";
+            box_class.Size = new Size(363, 481);
+            box_class.TabIndex = 0;
+            box_class.SelectedIndexChanged += box_class_SelectedIndexChanged;
             // 
-            // textBox1
+            // name_class
             // 
-            textBox1.Dock = DockStyle.Bottom;
-            textBox1.Location = new Point(0, 481);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(363, 23);
-            textBox1.TabIndex = 11;
+            name_class.Dock = DockStyle.Bottom;
+            name_class.Location = new Point(0, 481);
+            name_class.Name = "name_class";
+            name_class.Size = new Size(363, 23);
+            name_class.TabIndex = 11;
             // 
             // panel6
             // 
-            panel6.Controls.Add(button11);
-            panel6.Controls.Add(button5);
-            panel6.Controls.Add(button4);
-            panel6.Controls.Add(button3);
-            panel6.Controls.Add(button2);
-            panel6.Controls.Add(button1);
+            panel6.Controls.Add(button_copy_class);
+            panel6.Controls.Add(button_down_class);
+            panel6.Controls.Add(button_up_class);
+            panel6.Controls.Add(button_delete_class);
+            panel6.Controls.Add(button_rename_class);
+            panel6.Controls.Add(button_add_class);
             panel6.Dock = DockStyle.Bottom;
             panel6.Location = new Point(0, 504);
             panel6.Name = "panel6";
             panel6.Size = new Size(363, 60);
             panel6.TabIndex = 11;
             // 
-            // button11
+            // button_copy_class
             // 
-            button11.Dock = DockStyle.Left;
-            button11.Location = new Point(300, 0);
-            button11.Name = "button11";
-            button11.Size = new Size(60, 60);
-            button11.TabIndex = 16;
-            button11.Text = "複製";
-            button11.UseVisualStyleBackColor = true;
+            button_copy_class.Dock = DockStyle.Left;
+            button_copy_class.Location = new Point(300, 0);
+            button_copy_class.Name = "button_copy_class";
+            button_copy_class.Size = new Size(60, 60);
+            button_copy_class.TabIndex = 16;
+            button_copy_class.Text = "複製";
+            button_copy_class.UseVisualStyleBackColor = true;
+            button_copy_class.Click += button_copy_class_Click;
             // 
-            // button5
+            // button_down_class
             // 
-            button5.Dock = DockStyle.Left;
-            button5.Location = new Point(240, 0);
-            button5.Name = "button5";
-            button5.Size = new Size(60, 60);
-            button5.TabIndex = 15;
-            button5.Text = "v";
-            button5.UseVisualStyleBackColor = true;
+            button_down_class.Dock = DockStyle.Left;
+            button_down_class.Location = new Point(240, 0);
+            button_down_class.Name = "button_down_class";
+            button_down_class.Size = new Size(60, 60);
+            button_down_class.TabIndex = 15;
+            button_down_class.Text = "v";
+            button_down_class.UseVisualStyleBackColor = true;
+            button_down_class.Click += button_down_class_Click;
             // 
-            // button4
+            // button_up_class
             // 
-            button4.Dock = DockStyle.Left;
-            button4.Location = new Point(180, 0);
-            button4.Name = "button4";
-            button4.Size = new Size(60, 60);
-            button4.TabIndex = 14;
-            button4.Text = "^";
-            button4.UseVisualStyleBackColor = true;
+            button_up_class.Dock = DockStyle.Left;
+            button_up_class.Location = new Point(180, 0);
+            button_up_class.Name = "button_up_class";
+            button_up_class.Size = new Size(60, 60);
+            button_up_class.TabIndex = 14;
+            button_up_class.Text = "^";
+            button_up_class.UseVisualStyleBackColor = true;
+            button_up_class.Click += button_up_class_Click;
             // 
-            // button3
+            // button_delete_class
             // 
-            button3.Dock = DockStyle.Left;
-            button3.Location = new Point(120, 0);
-            button3.Name = "button3";
-            button3.Size = new Size(60, 60);
-            button3.TabIndex = 13;
-            button3.Text = "刪除";
-            button3.UseVisualStyleBackColor = true;
+            button_delete_class.Dock = DockStyle.Left;
+            button_delete_class.Location = new Point(120, 0);
+            button_delete_class.Name = "button_delete_class";
+            button_delete_class.Size = new Size(60, 60);
+            button_delete_class.TabIndex = 13;
+            button_delete_class.Text = "刪除";
+            button_delete_class.UseVisualStyleBackColor = true;
+            button_delete_class.Click += button_delete_class_Click;
             // 
-            // button2
+            // button_rename_class
             // 
-            button2.Dock = DockStyle.Left;
-            button2.Location = new Point(60, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(60, 60);
-            button2.TabIndex = 12;
-            button2.Text = "更名";
-            button2.UseVisualStyleBackColor = true;
+            button_rename_class.Dock = DockStyle.Left;
+            button_rename_class.Location = new Point(60, 0);
+            button_rename_class.Name = "button_rename_class";
+            button_rename_class.Size = new Size(60, 60);
+            button_rename_class.TabIndex = 12;
+            button_rename_class.Text = "更名";
+            button_rename_class.UseVisualStyleBackColor = true;
+            button_rename_class.Click += button_rename_class_Click;
             // 
-            // button1
+            // button_add_class
             // 
-            button1.Dock = DockStyle.Left;
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(60, 60);
-            button1.TabIndex = 11;
-            button1.Text = "新增";
-            button1.UseVisualStyleBackColor = true;
+            button_add_class.Dock = DockStyle.Left;
+            button_add_class.Location = new Point(0, 0);
+            button_add_class.Name = "button_add_class";
+            button_add_class.Size = new Size(60, 60);
+            button_add_class.TabIndex = 11;
+            button_add_class.Text = "新增";
+            button_add_class.UseVisualStyleBackColor = true;
+            button_add_class.Click += button_add_class_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(button_kill_process);
+            panel2.Controls.Add(button_run);
+            panel2.Controls.Add(button_close);
+            panel2.Controls.Add(check_box_auto_reload);
             panel2.Controls.Add(command);
             panel2.Controls.Add(command_label);
             panel2.Controls.Add(parameter);
             panel2.Controls.Add(label_parameter);
-            panel2.Controls.Add(panel_autoload);
+            panel2.Controls.Add(panel_is_run);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(553, 425);
+            panel2.Size = new Size(553, 354);
             panel2.TabIndex = 9;
+            // 
+            // button_kill_process
+            // 
+            button_kill_process.Location = new Point(18, 201);
+            button_kill_process.Name = "button_kill_process";
+            button_kill_process.Size = new Size(80, 60);
+            button_kill_process.TabIndex = 14;
+            button_kill_process.Text = "刪除進程";
+            button_kill_process.UseVisualStyleBackColor = true;
+            button_kill_process.Click += button_kill_process_Click;
+            // 
+            // button_run
+            // 
+            button_run.Location = new Point(18, 135);
+            button_run.Name = "button_run";
+            button_run.Size = new Size(80, 60);
+            button_run.TabIndex = 12;
+            button_run.Text = "執行";
+            button_run.UseVisualStyleBackColor = true;
+            button_run.Click += button_run_Click;
+            // 
+            // button_close
+            // 
+            button_close.Location = new Point(104, 135);
+            button_close.Name = "button_close";
+            button_close.Size = new Size(80, 60);
+            button_close.TabIndex = 13;
+            button_close.Text = "關閉";
+            button_close.UseVisualStyleBackColor = true;
+            button_close.Click += button_close_Click;
+            // 
+            // check_box_auto_reload
+            // 
+            check_box_auto_reload.AutoSize = true;
+            check_box_auto_reload.Location = new Point(18, 93);
+            check_box_auto_reload.Name = "check_box_auto_reload";
+            check_box_auto_reload.Size = new Size(74, 19);
+            check_box_auto_reload.TabIndex = 11;
+            check_box_auto_reload.Text = "自動重載";
+            check_box_auto_reload.UseVisualStyleBackColor = true;
+            check_box_auto_reload.CheckedChanged += check_box_auto_reload_CheckedChanged;
             // 
             // panel3
             // 
@@ -412,62 +480,67 @@
             // 
             // panel12
             // 
-            panel12.Controls.Add(button16);
-            panel12.Controls.Add(button15);
-            panel12.Controls.Add(checkBox1);
-            panel12.Controls.Add(button13);
-            panel12.Controls.Add(button14);
+            panel12.Controls.Add(button_kill_process_select);
+            panel12.Controls.Add(button_un_select);
+            panel12.Controls.Add(check_box_auto_reload_select);
+            panel12.Controls.Add(button_run_select);
+            panel12.Controls.Add(button_close_select);
             panel12.Dock = DockStyle.Bottom;
-            panel12.Location = new Point(0, 425);
+            panel12.Location = new Point(0, 354);
             panel12.Name = "panel12";
-            panel12.Size = new Size(553, 105);
+            panel12.Size = new Size(553, 176);
             panel12.TabIndex = 15;
             // 
-            // button16
+            // button_kill_process_select
             // 
-            button16.Location = new Point(465, 12);
-            button16.Name = "button16";
-            button16.Size = new Size(80, 60);
-            button16.TabIndex = 12;
-            button16.Text = "全部清空";
-            button16.UseVisualStyleBackColor = true;
+            button_kill_process_select.Location = new Point(12, 78);
+            button_kill_process_select.Name = "button_kill_process_select";
+            button_kill_process_select.Size = new Size(80, 60);
+            button_kill_process_select.TabIndex = 15;
+            button_kill_process_select.Text = "選擇刪除進程";
+            button_kill_process_select.UseVisualStyleBackColor = true;
+            button_kill_process_select.Click += button_kill_process_select_Click;
             // 
-            // button15
+            // button_un_select
             // 
-            button15.Location = new Point(379, 12);
-            button15.Name = "button15";
-            button15.Size = new Size(80, 60);
-            button15.TabIndex = 11;
-            button15.Text = "全部儲存";
-            button15.UseVisualStyleBackColor = true;
+            button_un_select.Location = new Point(184, 12);
+            button_un_select.Name = "button_un_select";
+            button_un_select.Size = new Size(80, 60);
+            button_un_select.TabIndex = 11;
+            button_un_select.Text = "不選取";
+            button_un_select.UseVisualStyleBackColor = true;
+            button_un_select.Click += button_un_select_Click;
             // 
-            // checkBox1
+            // check_box_auto_reload_select
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(18, 83);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(98, 19);
-            checkBox1.TabIndex = 10;
-            checkBox1.Text = "全部自動重載";
-            checkBox1.UseVisualStyleBackColor = true;
+            check_box_auto_reload_select.AutoSize = true;
+            check_box_auto_reload_select.Location = new Point(12, 144);
+            check_box_auto_reload_select.Name = "check_box_auto_reload_select";
+            check_box_auto_reload_select.Size = new Size(98, 19);
+            check_box_auto_reload_select.TabIndex = 10;
+            check_box_auto_reload_select.Text = "選擇自動重載";
+            check_box_auto_reload_select.UseVisualStyleBackColor = true;
+            check_box_auto_reload_select.CheckedChanged += check_box_auto_reload_select_CheckedChanged;
             // 
-            // button13
+            // button_run_select
             // 
-            button13.Location = new Point(12, 12);
-            button13.Name = "button13";
-            button13.Size = new Size(80, 60);
-            button13.TabIndex = 8;
-            button13.Text = "全部執行";
-            button13.UseVisualStyleBackColor = true;
+            button_run_select.Location = new Point(12, 12);
+            button_run_select.Name = "button_run_select";
+            button_run_select.Size = new Size(80, 60);
+            button_run_select.TabIndex = 8;
+            button_run_select.Text = "選擇全部執行";
+            button_run_select.UseVisualStyleBackColor = true;
+            button_run_select.Click += button_run_select_Click;
             // 
-            // button14
+            // button_close_select
             // 
-            button14.Location = new Point(98, 12);
-            button14.Name = "button14";
-            button14.Size = new Size(80, 60);
-            button14.TabIndex = 9;
-            button14.Text = "全部關閉";
-            button14.UseVisualStyleBackColor = true;
+            button_close_select.Location = new Point(98, 12);
+            button_close_select.Name = "button_close_select";
+            button_close_select.Size = new Size(80, 60);
+            button_close_select.TabIndex = 9;
+            button_close_select.Text = "選擇全部關閉";
+            button_close_select.UseVisualStyleBackColor = true;
+            button_close_select.Click += button_close_select_Click;
             // 
             // tabPage2
             // 
@@ -482,22 +555,22 @@
             // 
             // panel9
             // 
-            panel9.Controls.Add(richTextBox1);
+            panel9.Controls.Add(box_display);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(3, 3);
             panel9.Name = "panel9";
             panel9.Size = new Size(553, 530);
             panel9.TabIndex = 12;
             // 
-            // richTextBox1
+            // box_display
             // 
-            richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.Location = new Point(0, 0);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(553, 530);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            box_display.Dock = DockStyle.Fill;
+            box_display.Location = new Point(0, 0);
+            box_display.Name = "box_display";
+            box_display.ReadOnly = true;
+            box_display.Size = new Size(553, 530);
+            box_display.TabIndex = 0;
+            box_display.Text = "";
             // 
             // tabPage3
             // 
@@ -512,16 +585,49 @@
             // 
             // panel10
             // 
+            panel10.Controls.Add(button_reset_all);
+            panel10.Controls.Add(button_load_all);
+            panel10.Controls.Add(button_save_all);
             panel10.Controls.Add(label3);
-            panel10.Controls.Add(textBox3);
+            panel10.Controls.Add(count_line);
             panel10.Controls.Add(label1);
-            panel10.Controls.Add(textBox4);
+            panel10.Controls.Add(time_display);
             panel10.Controls.Add(label2);
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(3, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(553, 530);
             panel10.TabIndex = 13;
+            // 
+            // button_reset_all
+            // 
+            button_reset_all.Location = new Point(191, 88);
+            button_reset_all.Name = "button_reset_all";
+            button_reset_all.Size = new Size(80, 60);
+            button_reset_all.TabIndex = 16;
+            button_reset_all.Text = "重設";
+            button_reset_all.UseVisualStyleBackColor = true;
+            button_reset_all.Click += button_reset_all_Click;
+            // 
+            // button_load_all
+            // 
+            button_load_all.Location = new Point(19, 88);
+            button_load_all.Name = "button_load_all";
+            button_load_all.Size = new Size(80, 60);
+            button_load_all.TabIndex = 15;
+            button_load_all.Text = "載入";
+            button_load_all.UseVisualStyleBackColor = true;
+            button_load_all.Click += button_load_all_Click;
+            // 
+            // button_save_all
+            // 
+            button_save_all.Location = new Point(105, 88);
+            button_save_all.Name = "button_save_all";
+            button_save_all.Size = new Size(80, 60);
+            button_save_all.TabIndex = 14;
+            button_save_all.Text = "儲存";
+            button_save_all.UseVisualStyleBackColor = true;
+            button_save_all.Click += button_save_all_Click;
             // 
             // label3
             // 
@@ -533,13 +639,14 @@
             label3.Text = "ms";
             label3.UseMnemonic = false;
             // 
-            // textBox3
+            // count_line
             // 
-            textBox3.Location = new Point(82, 20);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(434, 23);
-            textBox3.TabIndex = 9;
-            textBox3.Text = "800";
+            count_line.Location = new Point(82, 20);
+            count_line.Name = "count_line";
+            count_line.Size = new Size(434, 23);
+            count_line.TabIndex = 9;
+            count_line.Text = "800";
+            count_line.TextChanged += count_line_TextChanged;
             // 
             // label1
             // 
@@ -551,13 +658,14 @@
             label1.Text = "行數";
             label1.UseMnemonic = false;
             // 
-            // textBox4
+            // time_display
             // 
-            textBox4.Location = new Point(82, 49);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(434, 23);
-            textBox4.TabIndex = 11;
-            textBox4.Text = "500";
+            time_display.Location = new Point(82, 49);
+            time_display.Name = "time_display";
+            time_display.Size = new Size(434, 23);
+            time_display.TabIndex = 11;
+            time_display.Text = "500";
+            time_display.TextChanged += time_display_TextChanged;
             // 
             // label2
             // 
@@ -632,26 +740,26 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel5;
-        private ListBox listBox2;
+        private ListBox box_item;
         private Panel panel4;
-        private ListBox listBox1;
+        private ListBox box_class;
         private Panel panel3;
-        private TextBox textBox2;
+        private TextBox name_item;
         private Panel panel7;
-        private TextBox textBox1;
+        private TextBox name_class;
         private Panel panel6;
-        private Button button1;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button12;
-        private Button button11;
+        private Button button_add_class;
+        private Button button_down_item;
+        private Button button_up_item;
+        private Button button_delete_item;
+        private Button button_rename_item;
+        private Button button_add_item;
+        private Button button_down_class;
+        private Button button_up_class;
+        private Button button_delete_class;
+        private Button button_rename_class;
+        private Button button_copy_item;
+        private Button button_copy_class;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private Panel panel8;
@@ -660,18 +768,25 @@
         private TabPage tabPage3;
         private Panel panel10;
         private Panel panel12;
-        private CheckBox checkBox1;
-        private Button button13;
-        private Button button14;
-        private RichTextBox richTextBox1;
+        private CheckBox check_box_auto_reload_select;
+        private Button button_run_select;
+        private Button button_close_select;
+        private RichTextBox box_display;
         private TabPage tabPage4;
         private Panel panel11;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox count_line;
         private Label label1;
-        private TextBox textBox4;
+        private TextBox time_display;
         private Label label2;
-        private Button button16;
-        private Button button15;
+        private CheckBox check_box_auto_reload;
+        private Button button_run;
+        private Button button_close;
+        private Button button_load_all;
+        private Button button_save_all;
+        private Button button_reset_all;
+        private Button button_un_select;
+        private Button button_kill_process;
+        private Button button_kill_process_select;
     }
 }
