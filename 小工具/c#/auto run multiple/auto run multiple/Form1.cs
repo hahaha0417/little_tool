@@ -7,18 +7,25 @@ namespace hahaha
 {
     public partial class form_auto_run_multiple : Form
     {
-
+        public bool Is_Update_UI = false;
         public form_auto_run_multiple()
         {
             InitializeComponent();
 
             panel_is_run.BackColor = Color.Red;
+            Is_Update_UI = true;
             Update_UI();
+            Is_Update_UI = false;
+
+            // ------------------------------------------------- 
+            tabControl1.TabPages.Remove(tabPage2);
+            tabControl1.TabPages.Remove(tabPage4);
+    
         }
 
         private void form_auto_run_Load(object sender, EventArgs e)
         {
-
+            
 
         }
 
@@ -49,12 +56,14 @@ namespace hahaha
                             {
                                 FileName = item.Command,
                                 Arguments = item.Parameter,
-                                UseShellExecute = false,
+                                UseShellExecute = item.Use_Shell_Excute,
                                 RedirectStandardOutput = true,
                                 RedirectStandardError = true,
-                                CreateNoWindow = false,
+                                CreateNoWindow = item.Create_No_Window,
+
                             }
                         };
+
                         item.Process.EnableRaisingEvents = true;
                         item.Process.Exited += new EventHandler(myProcess_Exited);
                         item.Process.Start();
@@ -100,10 +109,10 @@ namespace hahaha
                         {
                             FileName = foundItem.Command,
                             Arguments = foundItem.Parameter,
-                            UseShellExecute = false,
+                            UseShellExecute = foundItem.Use_Shell_Excute,
                             RedirectStandardOutput = true,
                             RedirectStandardError = true,
-                            CreateNoWindow = false,
+                            CreateNoWindow = foundItem.Create_No_Window,
                         }
                     };
                     foundItem.Process.EnableRaisingEvents = true;
@@ -218,6 +227,8 @@ namespace hahaha
                         {
                             Name = item.Name,
                             Auto_Reload = item.Auto_Reload,
+                            Use_Shell_Excute = item.Use_Shell_Excute,
+                            Create_No_Window = item.Create_No_Window,
                             Command = item.Command,
                             Parameter = item.Parameter
                             // Status 不複製
@@ -237,7 +248,11 @@ namespace hahaha
 
             if (classIdx >= 0)
             {
-                name_class.Text = hahaha.Setting_Box_!.Setting.Items[classIdx].Name;
+                if (!Is_Update_UI)
+                {
+                    name_class.Text = hahaha.Setting_Box_!.Setting.Items[classIdx].Name;
+                }
+                
 
                 // 重新載入該 class 的所有 items
                 var items = hahaha.Setting_Box_!.Setting.Items[classIdx].Items;
@@ -254,6 +269,8 @@ namespace hahaha
                     command.Text = item.Command;
                     parameter.Text = item.Parameter;
                     check_box_auto_reload.Checked = item.Auto_Reload;
+                    check_box_use_shell_excute.Checked = item.Use_Shell_Excute;
+                    check_box_create_no_window.Checked = item.Create_No_Window;
                     name_item.Text = item.Name;
                 }
                 else
@@ -261,6 +278,8 @@ namespace hahaha
                     command.Clear();
                     parameter.Clear();
                     check_box_auto_reload.Checked = false;
+                    check_box_use_shell_excute.Checked = false;
+                    check_box_create_no_window.Checked = false;
                     name_item.Clear();
                 }
             }
@@ -270,6 +289,8 @@ namespace hahaha
                 command.Clear();
                 parameter.Clear();
                 check_box_auto_reload.Checked = false;
+                check_box_use_shell_excute.Checked = false;
+                check_box_create_no_window.Checked = false;
                 name_item.Clear();
             }
             panel_is_run.BackColor = Color.Red;
@@ -366,6 +387,8 @@ namespace hahaha
                 {
                     Name = original.Name + "_copy",
                     Auto_Reload = original.Auto_Reload,
+                    Use_Shell_Excute = original.Use_Shell_Excute,
+                    Create_No_Window = original.Create_No_Window,
                     Command = original.Command,
                     Parameter = original.Parameter
                     // Status 不複製
@@ -383,10 +406,16 @@ namespace hahaha
             if (classIdx >= 0 && itemIdx >= 0)
             {
                 var item = hahaha.Setting_Box_!.Setting.Items[classIdx].Items[itemIdx];
-                name_item.Text = item.Name;
+                if (!Is_Update_UI)
+                {
+                    name_item.Text = item.Name;
+                }
+                
                 command.Text = item.Command;
                 parameter.Text = item.Parameter;
                 check_box_auto_reload.Checked = item.Auto_Reload;
+                check_box_use_shell_excute.Checked = item.Use_Shell_Excute;
+                check_box_create_no_window.Checked = item.Create_No_Window;
                 panel_is_run.BackColor = (item.Running ? Color.Green : Color.Red);
             }
             else
@@ -395,6 +424,8 @@ namespace hahaha
                 command.Clear();
                 parameter.Clear();
                 check_box_auto_reload.Checked = false;
+                check_box_use_shell_excute.Checked = false;
+                check_box_create_no_window.Checked = false;
                 panel_is_run.BackColor = Color.Red;
             }
         }
@@ -472,7 +503,9 @@ namespace hahaha
         private void button_load_all_Click(object sender, EventArgs e)
         {
             hahaha.Setting_Box_!.Load_All();
+            Is_Update_UI = true;
             Update_UI();
+            Is_Update_UI = false;
         }
 
         private void button_save_all_Click(object sender, EventArgs e)
@@ -545,17 +578,30 @@ namespace hahaha
             if (classIdx >= 0 && itemIdx >= 0)
             {
                 var item = hahaha.Setting_Box_!.Setting.Items[classIdx].Items[itemIdx];
-                name_item.Text = item.Name;
+                if (!Is_Update_UI)
+                {
+                    name_class.Text = hahaha.Setting_Box_!.Setting.Items[classIdx].Name;
+                }
+                if (!Is_Update_UI)
+                {
+                    name_item.Text = item.Name;
+                }
+                
                 command.Text = item.Command;
                 parameter.Text = item.Parameter;
                 check_box_auto_reload.Checked = item.Auto_Reload;
+                check_box_use_shell_excute.Checked = item.Use_Shell_Excute;
+                check_box_create_no_window.Checked = item.Create_No_Window;
             }
             else
             {
+                name_class.Clear();
                 name_item.Clear();
                 command.Clear();
                 parameter.Clear();
                 check_box_auto_reload.Checked = false;
+                check_box_use_shell_excute.Checked = false;
+                check_box_create_no_window.Checked = false;
             }
         }
 
@@ -808,6 +854,102 @@ namespace hahaha
                         {
                             try { item.Process.Kill(); } catch { }
                         }
+                    }
+                }
+            }
+        }
+
+        private void check_box_use_shell_excute_CheckedChanged(object sender, EventArgs e)
+        {
+            int classIdx = box_class.SelectedIndex;
+            int itemIdx = box_item.SelectedIndex;
+            if (classIdx >= 0 && itemIdx >= 0)
+            {
+                var item = hahaha.Setting_Box_!.Setting.Items[classIdx].Items[itemIdx];
+                item.Use_Shell_Excute = check_box_use_shell_excute_select.Checked;
+            }
+        }
+
+        private void check_box_create_no_window_CheckedChanged(object sender, EventArgs e)
+        {
+            int classIdx = box_class.SelectedIndex;
+            int itemIdx = box_item.SelectedIndex;
+            if (classIdx >= 0 && itemIdx >= 0)
+            {
+                var item = hahaha.Setting_Box_!.Setting.Items[classIdx].Items[itemIdx];
+                item.Create_No_Window = check_box_create_no_window.Checked;
+            }
+        }
+
+        private void check_box_use_shell_excute_select_CheckedChanged(object sender, EventArgs e)
+        {
+            int classIdx = box_class.SelectedIndex;
+            int itemIdx = box_item.SelectedIndex;
+            bool value = check_box_use_shell_excute_select.Checked;
+
+            if (classIdx >= 0)
+            {
+                var items = hahaha.Setting_Box_!.Setting.Items[classIdx].Items;
+                if (itemIdx >= 0)
+                {
+                    // 只修改選中的 item
+                    items[itemIdx].Use_Shell_Excute = value;
+                }
+                else
+                {
+                    // 修改該 class 下所有 items
+                    foreach (var item in items)
+                    {
+                        item.Use_Shell_Excute = value;
+                    }
+                }
+            }
+            else
+            {
+                var items = hahaha.Setting_Box_!.Setting.Items;
+                // 修改所有 class 下的所有 items
+                foreach (var cls in items)
+                {
+                    foreach (var item in cls.Items)
+                    {
+                        item.Use_Shell_Excute = value;
+                    }
+                }
+            }
+        }
+
+        private void check_box_create_no_window_select_CheckedChanged(object sender, EventArgs e)
+        {
+            int classIdx = box_class.SelectedIndex;
+            int itemIdx = box_item.SelectedIndex;
+            bool value = check_box_create_no_window_select.Checked;
+
+            if (classIdx >= 0)
+            {
+                var items = hahaha.Setting_Box_!.Setting.Items[classIdx].Items;
+                if (itemIdx >= 0)
+                {
+                    // 只修改選中的 item
+                    items[itemIdx].Create_No_Window = value;
+                }
+                else
+                {
+                    // 修改該 class 下所有 items
+                    foreach (var item in items)
+                    {
+                        item.Create_No_Window = value;
+                    }
+                }
+            }
+            else
+            {
+                var items = hahaha.Setting_Box_!.Setting.Items;
+                // 修改所有 class 下的所有 items
+                foreach (var cls in items)
+                {
+                    foreach (var item in cls.Items)
+                    {
+                        item.Create_No_Window = value;
                     }
                 }
             }

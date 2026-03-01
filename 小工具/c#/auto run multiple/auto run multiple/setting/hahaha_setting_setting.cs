@@ -18,6 +18,8 @@ namespace hahaha
     public class hahaha_setting_system_item
     {
         public bool Auto_Reload { get; set; } = false;
+        public bool Use_Shell_Excute { get; set; } = false;
+        public bool Create_No_Window { get; set; } = false;
         public string Name { get; set; } = "";
         public string Command { get; set; } = "";
         public string Parameter { get; set; } = "";
