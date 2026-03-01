@@ -20,6 +20,8 @@ namespace hahaha
             // ------------------------------------------------- 
             tabControl1.TabPages.Remove(tabPage2);
             tabControl1.TabPages.Remove(tabPage4);
+
+           
     
         }
 
@@ -50,19 +52,37 @@ namespace hahaha
                     }
                     if (!item.Running)
                     {
-                        item.Process = new Process
+                        if (item.Use_Shell_Excute)
                         {
-                            StartInfo = new ProcessStartInfo
+                            item.Process = new Process
                             {
-                                FileName = item.Command,
-                                Arguments = item.Parameter,
-                                UseShellExecute = item.Use_Shell_Excute,
-                                RedirectStandardOutput = true,
-                                RedirectStandardError = true,
-                                CreateNoWindow = item.Create_No_Window,
+                                StartInfo = new ProcessStartInfo
+                                {
+                                    FileName = item.Command,
+                                    Arguments = item.Parameter,
+                                    UseShellExecute = item.Use_Shell_Excute,
+                                    CreateNoWindow = item.Create_No_Window,
 
-                            }
-                        };
+                                }
+                            };
+                        }
+                        else
+                        {
+                            item.Process = new Process
+                            {
+                                StartInfo = new ProcessStartInfo
+                                {
+                                    FileName = item.Command,
+                                    Arguments = item.Parameter,
+                                    UseShellExecute = item.Use_Shell_Excute,
+                                    RedirectStandardOutput = true,
+                                    RedirectStandardError = true,
+                                    CreateNoWindow = item.Create_No_Window,
+
+                                }
+                            };
+                        }
+                        
 
                         item.Process.EnableRaisingEvents = true;
                         item.Process.Exited += new EventHandler(myProcess_Exited);
@@ -103,18 +123,35 @@ namespace hahaha
                 // 檢查是否需要自動重載
                 if (foundItem.Running && foundItem.Auto_Reload)
                 {
-                    foundItem.Process = new Process
+                    if (foundItem.Use_Shell_Excute)
                     {
-                        StartInfo = new ProcessStartInfo
+                        foundItem.Process = new Process
                         {
-                            FileName = foundItem.Command,
-                            Arguments = foundItem.Parameter,
-                            UseShellExecute = foundItem.Use_Shell_Excute,
-                            RedirectStandardOutput = true,
-                            RedirectStandardError = true,
-                            CreateNoWindow = foundItem.Create_No_Window,
-                        }
-                    };
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = foundItem.Command,
+                                Arguments = foundItem.Parameter,
+                                UseShellExecute = foundItem.Use_Shell_Excute,
+                                CreateNoWindow = foundItem.Create_No_Window,
+                            }
+                        };
+                    }
+                    else
+                    {
+                        foundItem.Process = new Process
+                        {
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = foundItem.Command,
+                                Arguments = foundItem.Parameter,
+                                UseShellExecute = foundItem.Use_Shell_Excute,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError = true,
+                                CreateNoWindow = foundItem.Create_No_Window,
+                            }
+                        };
+                    }
+                    
                     foundItem.Process.EnableRaisingEvents = true;
                     foundItem.Process.Exited += new EventHandler(myProcess_Exited);
                     foundItem.Process.Start();
@@ -866,7 +903,7 @@ namespace hahaha
             if (classIdx >= 0 && itemIdx >= 0)
             {
                 var item = hahaha.Setting_Box_!.Setting.Items[classIdx].Items[itemIdx];
-                item.Use_Shell_Excute = check_box_use_shell_excute_select.Checked;
+                item.Use_Shell_Excute = check_box_use_shell_excute.Checked;
             }
         }
 

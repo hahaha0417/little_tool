@@ -423,13 +423,13 @@
             label4.Name = "label4";
             label4.Size = new Size(79, 15);
             label4.TabIndex = 17;
-            label4.Text = "開文字檔網址";
+            label4.Text = "預設程式開檔";
             label4.UseMnemonic = false;
             // 
             // check_box_create_no_window
             // 
             check_box_create_no_window.AutoSize = true;
-            check_box_create_no_window.Location = new Point(421, 117);
+            check_box_create_no_window.Location = new Point(421, 121);
             check_box_create_no_window.Name = "check_box_create_no_window";
             check_box_create_no_window.Size = new Size(86, 19);
             check_box_create_no_window.TabIndex = 16;
@@ -440,7 +440,7 @@
             // check_box_use_shell_excute
             // 
             check_box_use_shell_excute.AutoSize = true;
-            check_box_use_shell_excute.Location = new Point(421, 90);
+            check_box_use_shell_excute.Location = new Point(421, 93);
             check_box_use_shell_excute.Name = "check_box_use_shell_excute";
             check_box_use_shell_excute.Size = new Size(77, 19);
             check_box_use_shell_excute.TabIndex = 15;
@@ -566,13 +566,13 @@
             label7.Name = "label7";
             label7.Size = new Size(79, 15);
             label7.TabIndex = 19;
-            label7.Text = "開文字檔網址";
+            label7.Text = "預設程式開檔";
             label7.UseMnemonic = false;
             // 
             // check_box_create_no_window_select
             // 
             check_box_create_no_window_select.AutoSize = true;
-            check_box_create_no_window_select.Location = new Point(414, 47);
+            check_box_create_no_window_select.Location = new Point(421, 48);
             check_box_create_no_window_select.Name = "check_box_create_no_window_select";
             check_box_create_no_window_select.Size = new Size(110, 19);
             check_box_create_no_window_select.TabIndex = 17;
@@ -583,7 +583,7 @@
             // check_box_use_shell_excute_select
             // 
             check_box_use_shell_excute_select.AutoSize = true;
-            check_box_use_shell_excute_select.Location = new Point(414, 17);
+            check_box_use_shell_excute_select.Location = new Point(421, 21);
             check_box_use_shell_excute_select.Name = "check_box_use_shell_excute_select";
             check_box_use_shell_excute_select.Size = new Size(101, 19);
             check_box_use_shell_excute_select.TabIndex = 16;
