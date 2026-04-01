@@ -1,0 +1,5 @@
+幫我做一個asp.net api的程式
+一個api會載入三個json(email,phone,order_no)載到各自獨立的dirrectory(全域的)
+一個api會寫回三個json(email,phone,order_no)從各自獨立的dirrectory(全域的)
+提供三組API分別可以新增 email和phone和order_no，各用lock防止API新增時競爭各自獨立的dirrectory
+我要利用directory查key的快速，api新增email、phone、order_no，如果存在回1，不存在回0並幫我加入directory
