@@ -1,9 +1,11 @@
-# 專案上下文快取
+﻿# 專案 AI 上下文快取
+請先參考 repository 內已產生的上下文快取檔案，再進行程式碼分析與修改：
+- `storage/app/ai-context/code-summary.md`
+- `storage/app/ai-context/project-structure.md`
+- `storage/app/ai-context/`（可用 `php artisan app:hahaha-cache-ai-context` 更新）
 
-在這個 repository 內開始生成程式碼、審查檔案或回答問題前，先讀：
-
-- `.codex/code-summary.md`
-- `.codex/project-structure.md`
-- `storage/app/ai-context/` 下由 `php artisan app:cache-ai-context` 產生的其他 AI 上下文檔案
-
-把這些檔案當成主要專案上下文。如果它們不存在或明顯過期，先重新產生再繼續。
+## 編碼保護（重要）
+- 產生或修改檔案時，請使用 `pwsh`（PowerShell 7+）。
+- 不要使用 `powershell.exe`（5.1）寫檔。
+- 目標編碼固定為 UTF-8 No-BOM。
+- 避免使用未明確指定編碼的整檔覆寫方式。
