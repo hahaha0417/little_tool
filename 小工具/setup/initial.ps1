@@ -4,3 +4,4 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 
 
 choco install notepadplusplus -y
+choco install powershell-core -y
