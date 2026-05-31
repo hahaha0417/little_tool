@@ -1,5 +1,3 @@
-[mcp_servers.hello3]
-command = "npm"
-args = ["run", "http"]
-cwd = "../mcp-hello"
-env = { MCP_HOST = "127.0.0.1", MCP_PORT = "3000" }
+[mcp_servers.laravel-boost]
+command = "php"
+args = ["artisan", "boost:mcp"]

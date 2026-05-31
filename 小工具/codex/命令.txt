@@ -1,0 +1,4 @@
+php artisan app:cache-ai-context
+php artisan app:cache-code-summary
+php artisan app:cache-project-structure
+
