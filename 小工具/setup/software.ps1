@@ -7,4 +7,8 @@ choco install sourcetree -y
 choco install syncbackfree -y --ignore-checksums
 choco install postman -y
 choco install heidisql -y
+choco install filezilla -y
+choco source list
+choco upgrade chocolatey -y
+choco install another-redis-desktop-manager -y
 
