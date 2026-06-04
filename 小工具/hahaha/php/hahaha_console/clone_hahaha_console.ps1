@@ -21,7 +21,7 @@ if (Test-Path -LiteralPath $Target_Path_Hahaha_Laravel_Lib_) {
     git clone $Repository_Url_Hahaha_Laravel_Lib_ $Target_Path_Hahaha_Laravel_Lib_
 }
 
-Copy-Item ./.env $Target_Path_
+# Copy-Item ./.env $Target_Path_
 
 Set-Location -LiteralPath $Target_Path_
 

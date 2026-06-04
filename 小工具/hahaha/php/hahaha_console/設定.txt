@@ -1,0 +1,19 @@
+php.ini
+
+extension=fileinfo
+extension=gd
+extension=pdo_mysql
+extension=pdo_sqlite
+
+
+
+一定要連資料庫
+建立
+username： hahaha
+password： hahaha
+database： test
+
+沒辦法只有手動建，不然就改一份自己的
+
+
+
