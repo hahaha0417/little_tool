@@ -21,6 +21,17 @@ if (Test-Path -LiteralPath $Target_Path_Hahaha_Laravel_Lib_) {
     git clone $Repository_Url_Hahaha_Laravel_Lib_ $Target_Path_Hahaha_Laravel_Lib_
 }
 
+$Repository_Url_Hahahalib_ = 'https://github.com/hahaha0417/php_hahahalib.git'
+$Target_Directory_Hahahalib_ = 'library/hahahalib'
+$Target_Path_Hahahalib_ = Join-Path -Path $Target_Path_ -ChildPath $Target_Directory_Hahahalib_
+
+if (Test-Path -LiteralPath $Target_Path_Hahahalib_) {
+    Write-Host "Target directory already exists: $Target_Path_Hahahalib_"
+} else {
+    New-Item -ItemType Directory -Path (Split-Path $Target_Path_Hahahalib_) -Force | Out-Null
+    git clone $Repository_Url_Hahahalib_ $Target_Path_Hahahalib_
+}
+
 Copy-Item ./.env $Target_Path_
 
 Set-Location -LiteralPath $Target_Path_
