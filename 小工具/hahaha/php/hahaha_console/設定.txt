@@ -16,4 +16,5 @@ database： test
 沒辦法只有手動建，不然就改一份自己的
 
 
-
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
