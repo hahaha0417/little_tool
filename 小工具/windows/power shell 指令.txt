@@ -1,0 +1,4 @@
+Get-Content "C:\log\app.log" -Wait -Tail 50
+
+View
+→ Monitoring (tail -f)
